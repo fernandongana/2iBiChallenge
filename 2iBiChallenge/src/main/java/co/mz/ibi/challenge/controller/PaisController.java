@@ -35,7 +35,7 @@ public class PaisController {
 	@PostMapping(value="/update", headers = "Accept=application/json")
     	public ResponseEntity<?> Update(@Valid @RequestBody Pais pais) throws Exception{
 		paisRepository.updatePais(pais.getNome(),pais.getCapital(),pais.getRegiao(),pais.getSubRegiao() , pais.getArea(), pais.getIdentificador());
-		return new ResponseEntity<>("Criado com sucesso", HttpStatus.OK);	
+		return new ResponseEntity<>("Modificado com sucesso", HttpStatus.OK);	
 	}
 	
 	@GetMapping("/find/{identificador}")
