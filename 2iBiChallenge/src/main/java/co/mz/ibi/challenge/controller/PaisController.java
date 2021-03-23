@@ -25,8 +25,7 @@ public class PaisController {
 	
 	@Autowired
 	private PaisRepository paisRepository;
-	
-	
+		
 	@PostMapping(value="/create", headers = "Accept=application/json")
     public ResponseEntity<?> Save(@Valid @RequestBody Pais pais) throws Exception{
 		paisRepository.save(pais);
