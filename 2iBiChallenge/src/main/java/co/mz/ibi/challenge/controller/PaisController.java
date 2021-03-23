@@ -27,8 +27,14 @@ public class PaisController {
 	private PaisRepository paisRepository;
 		
 	@PostMapping(value="/create", headers = "Accept=application/json")
-    public ResponseEntity<?> Save(@Valid @RequestBody Pais pais) throws Exception{
+    	public ResponseEntity<?> Save(@Valid @RequestBody Pais pais) throws Exception{
 		paisRepository.save(pais);
+		return new ResponseEntity<>("Criado com sucesso", HttpStatus.OK);	
+	}
+	
+	@PostMapping(value="/update", headers = "Accept=application/json")
+    	public ResponseEntity<?> Update(@Valid @RequestBody Pais pais) throws Exception{
+		paisRepository.updatePais(pais.getNome(),pais.getCapital(),pais.getRegiao(),pais.getSubRegiao() , pais.getArea(), pais.getIdentificador());
 		return new ResponseEntity<>("Criado com sucesso", HttpStatus.OK);	
 	}
 	
