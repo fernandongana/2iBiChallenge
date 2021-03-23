@@ -27,6 +27,7 @@ public interface PaisRepository extends JpaRepository<Pais, Long>{
 	
 	
 	@Modifying
+	@Transactional
 	@Query("DELETE from Pais p WHERE p.identificador =:identificador")
 	public void deletePais(@Param("identificador") Long identificador);
 	
